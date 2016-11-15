@@ -30,6 +30,7 @@ public class DatabaseHandler {
         contentValues.put(Constants.STUDENT_CITY,student.getCity());
         sqLiteDatabase.insert(Constants.STUDENT_TABLE,null,contentValues);
 
+        sqLiteDatabase.close();
     }
 
     public ArrayList<Student> getAllContacts(){
@@ -53,7 +54,7 @@ public class DatabaseHandler {
             }while (cursor.moveToNext());
 
         }
-
+        sqLiteDatabase.close();
         return array;
     }
 }

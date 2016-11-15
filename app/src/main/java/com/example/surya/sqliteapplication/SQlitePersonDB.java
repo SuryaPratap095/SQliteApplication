@@ -17,7 +17,7 @@ public class SQlitePersonDB extends SQLiteOpenHelper {
 //    }
 
     public SQlitePersonDB(Context context) {
-        super(context, Constants.DATABASE_NAME, null, Constants.DATABASE_VERSION);
+        super(context, Constants.DATABASE_NAME, null, Constants.DATABASE_VERSION2);
 
     }
 
@@ -28,7 +28,7 @@ public class SQlitePersonDB extends SQLiteOpenHelper {
 
         String createTable="CREATE TABLE "
                 + Constants.STUDENT_TABLE +"( "
-                + Constants.STUDENT_ID + " INT  PRIMARY KEY, "
+                + Constants.STUDENT_ID + " INTEGER PRIMARY KEY, "
                 +  Constants.STUDENT_NAME +" TEXT, "
                 + Constants.STUDENT_CITY + " TEXT)";
 
@@ -37,6 +37,7 @@ public class SQlitePersonDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS"+Constants.STUDENT_TABLE);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+Constants.STUDENT_TABLE);
+        onCreate(sqLiteDatabase);
     }
 }

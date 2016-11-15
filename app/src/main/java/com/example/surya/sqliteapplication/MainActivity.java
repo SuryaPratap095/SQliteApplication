@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Student student=new Student("Ram","Pune");
+        Student student=new Student("Rishabh","Mumbai");
         databaseHandler=new DatabaseHandler(this);
         databaseHandler.createStudent(student);
 
